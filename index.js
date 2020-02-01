@@ -1,5 +1,6 @@
 import productRoutes from './app/server/routes/productRoutes';
 import orderRoutes from './app/server/routes/orderRoutes';
+import orderItemsRoutes from './app/server/routes/orderItemsRoutes';
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -17,3 +18,4 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
+app.use('/api/orderitems', orderItemsRoutes);
