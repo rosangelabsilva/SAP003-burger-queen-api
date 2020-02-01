@@ -10,7 +10,28 @@ const addOrder = async (req, res) => {
     res.json(createOrder);
 };
 
+const getIdOrder = async (req, res) => {
+    const {id} = req.params;
+    const products = await models.orders.findOne({where:{id:Number(id)}});
+    res.json(products);
+};
+
+const updatedOrder = async (req, res) => {
+    const { id } = req.params;
+    const products = await models.orders.update(req.body, {where:{id:Number(id)}});
+    res.json(products)
+}
+
+const deleteOrder = async (req, res) => {
+    const { id } = req.params;
+    const products = await models.orders.destroy({where:{id:Number(id)}});
+    res.json(products)
+}
+
 export default {
     getAll,
-    addOrder
+    addOrder,
+    getIdOrder,
+    updatedOrder,
+    deleteOrder
 }
