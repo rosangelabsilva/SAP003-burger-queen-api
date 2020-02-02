@@ -5,13 +5,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
-const minha_porta = 3000;
+const port = 3000;
+const host = '0.0.0.0';
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.listen(minha_porta);
+app.listen(port, host);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
